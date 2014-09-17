@@ -15,9 +15,10 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'angular-momentjs'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $momentProvider ) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -27,7 +28,14 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
+      .when('/yami', {
+        templateUrl: 'views/yami.html',
+        controller: 'YamiCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
+    $momentProvider
+      .asyncLoading( false )
+      .scriptUrl( 'bower_components/angular-momentjs/angular-momentjs.js' );
   });

@@ -1,23 +1,64 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
-</div>
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
+<div class="container homepage">
+  <div class="row">
+    <div class="col-xs-9 punchin">
+      <div class="recentpunches col-xs-12">
 
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
+        <div class="col-xs-12 recent">
+          <div class="text">Recent Punches</div>
+        </div>
 
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
+        <div class="col-xs-12 punches">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Date  {{ now | moment : "h:mm a" }}</th>
+                <th>Punch In <i class="fa fa-arrow-right"> </i></th>
+                <th>Lunch Out <i class="fa fa-arrow-right"> </i> </th>
+                <th>Lunch In <i class="fa fa-arrow-right"> </i> </th>
+                <th>Punch Out</th>
+                <th>Total</th>
+                <th>Overtime</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="punch in punches">
+                <td class="date">
+                  <div class="pull-left yearmm col-xs-6 no-padding">
+                    <div class="month"> {{ punch.date.month }}</div>
+                    <div class="year">{{ punch.date.year }}</div>
+                  </div>
+                  <div class="pull-right col-xs-6 no-padding">
+                    <div class="day">{{ punch.date.day }}</div>
+                  </div>
+                </td>
+                <td class="punchin">
+                  <div class="monthdd">{{ punch.date.month }} {{ punch.date.day }} </div>
+                  <div class="time"> {{ punch.punchin | moment : 'h:mm a' }}</div>
+                </td>
+                <td class="lunchout">
+                  <div class="monthdd">{{ punch.date.month }} {{ punch.date.day }} </div>
+                  <div class="time"> {{ punch.lunchout | moment : 'h:mm a' }}</div>
+                </td>
+                <td class="lunchin">
+                  <div class="monthdd">{{ punch.date.month }} {{ punch.date.day }} </div>
+                  <div class="time"> {{ punch.lunchin | moment : 'h:mm a' }}</div>
+                </td>
+                <td class="punchout">
+                  <div class="monthdd">{{ punch.date.month }} {{ punch.date.day }} </div>
+                  <div class="time"> {{ punch.punchout | moment : 'h:mm a' }}</div>
+                </td>
+                <td class="total">
+                </td>
+                <td class="overtime">
+                </td>
+
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-3 annoucements"></div>
+  </div>
 </div>
